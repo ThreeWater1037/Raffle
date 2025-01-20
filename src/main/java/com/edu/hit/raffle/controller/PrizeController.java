@@ -23,7 +23,7 @@ public class PrizeController{
      * @param prize
      * @return
      */
-    @PostMapping("")
+    @PostMapping("/add")
     public Result<Prize> save(Prize prize){
         prizeService.save(prize);
         return Result.success(prize);
@@ -34,7 +34,7 @@ public class PrizeController{
      * @param id
      * @return
      */
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public Result<String> delete(int id){
         prizeService.removeById(id);
         return Result.success("删除成功");
@@ -45,7 +45,7 @@ public class PrizeController{
      * @param prize
      * @return
      */
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result<Prize> update(Prize prize){
         prizeService.updateById(prize);
         return Result.success(prize);

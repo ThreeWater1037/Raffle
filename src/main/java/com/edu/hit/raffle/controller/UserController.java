@@ -8,10 +8,7 @@ import com.edu.hit.raffle.service.Impl.UserServiceImpl;
 import com.edu.hit.raffle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -71,12 +68,12 @@ public class UserController {
         userService.save(user);
         return Result.success(user);
     }
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public Result<String> delete(int id){
         userService.removeById(id);
         return Result.success("删除成功");
     }
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Result<User> update(User user){
         userService.updateById(user);
         return Result.success(user);
